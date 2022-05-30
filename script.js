@@ -1,7 +1,7 @@
-import { drawLineBasic, drawLineBres, drawLineDDA, drawCircleMidPoint } from "./algorithms.js";
+import { drawLineBasic, drawLineBres, drawLineDDA, drawCircleMidPoint, drawCircleBres } from "./algorithms.js";
 const WIDTH = 800;
 const HEIGHT = WIDTH;
-const BSIZE = 10;
+const BSIZE = 40;
 const BNUM = HEIGHT / BSIZE
 
 
@@ -50,7 +50,7 @@ function sketch(processing) {
       
     }
     if (tipo == 'cBres') {
-      linea = drawCircleMidPoint(x1, y1, radio)
+      linea = drawCircleBres(x1, y1, radio)
       
     }
 

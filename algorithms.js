@@ -99,35 +99,54 @@ export function drawLineBres(x1, y1, x2, y2) {
     return resultado
 
 }
+function drawCircle(x0, y0, x, y) {
+    const xLine = []
+    const yLine = []
+    xLine.push(x0 + x)
+    yLine.push(y0 + y)
 
+    xLine.push(x0 - x)
+    yLine.push(y0 + y)
+
+    xLine.push(x0 - x)
+    yLine.push(y0 - y)
+
+    xLine.push(x0 + x)
+    yLine.push(y0 - y)
+
+
+    xLine.push(x0 + y)
+    yLine.push(y0 + x)
+
+    xLine.push(x0 - y)
+    yLine.push(y0 + x)
+
+    xLine.push(x0 + y)
+    yLine.push(y0 - x)
+
+    xLine.push(x0 - y)
+    yLine.push(y0 - x)
+
+    const resultado = { 'x': xLine, 'y': yLine }
+
+
+    return resultado
+
+}
 
 
 
 export function drawCircleMidPoint(x0, y0, r) {
-    const xLine = []
-    const yLine = []
+    let xLine = []
+    let yLine = []
 
     let x = r
     let y = 0
 
-    
+    let puntos = drawCircle(x0, y0, x, y)
 
-    if (r > 0) {
-        yLine.push(y0 - y)
-        xLine.push(x0 + x)
-
-        yLine.push(y0 + x)
-        xLine.push(y + x0)
-       
-
-        yLine.push(y0 + y)
-        xLine.push(x0-x)
-
-        yLine.push(y0 - x)
-        xLine.push(x0+y)
-
-    }
-
+    xLine = xLine.concat(puntos.x)
+    yLine = yLine.concat(puntos.y)
 
     let p = 1 - r
 
@@ -143,36 +162,56 @@ export function drawCircleMidPoint(x0, y0, r) {
             x -= 1
             p = p + 2 * y - 2 * x + 1
         }
-        yLine.push(y + y0)
-        xLine.push(x + x0)
+        let puntos = drawCircle(x0, y0, x, y)
 
-        yLine.push(-y + y0)
-        xLine.push(x + x0)
+        xLine = xLine.concat(puntos.x)
+        yLine = yLine.concat(puntos.y)
 
-        yLine.push(-y + y0)
-        xLine.push(-x + x0)
+    }
+    const resultado = { 'x': xLine, 'y': yLine }
+    return resultado
 
-        yLine.push(y + y0)
-        xLine.push(-x + x0)
 
-        if (x != y) {
-            yLine.push(x + y0)
-            xLine.push(y + x0)
+}
 
-            yLine.push(x + y0)
-            xLine.push(-y + x0)
 
-            yLine.push(-x + y0)
-            xLine.push(y + x0)
 
-            yLine.push(-x + y0)
-            xLine.push(-y + x0)
 
+export function drawCircleBres(x0, y0, r) {
+    let xLine = []
+    let yLine = []
+
+    let x = 0
+    let y = r
+    let d = 3 - (2 * r)
+
+    let puntos = drawCircle(x0, y0, x, y)
+
+    xLine = xLine.concat(puntos.x)
+    yLine = yLine.concat(puntos.y)
+
+    while (y >= x) {
+        x++;
+        if (d > 0) {
+            y--;
+            d = d + 4 * (x - y) + 10;
         }
+        else {
+            d = d + 4 * x + 6;
+        }
+
+        puntos = drawCircle(x0, y0, x, y)
+
+        xLine = xLine.concat(puntos.x)
+        yLine = yLine.concat(puntos.y)
+
+
     }
 
+
+
     const resultado = { 'x': xLine, 'y': yLine }
-    //console.log(resultado)
+    console.log(puntos)
 
 
     return resultado

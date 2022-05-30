@@ -14,22 +14,24 @@
         <form id="datos">
             <label for="algs">Algorithm</label>
             <select class="form-select form-select-sm" id="tipo" aria-label=".form-select-sm example">
+                <option value="cMidp">C. Midpoint</option>
+                <option value="cBres">C. Bresenham</option>
                 <option value="lBasic" >L. Basic</option>
                 <option value="lDDA" >L. DDA</option>
                 <option value="lBres">L. Bresenham</option>
                 <option value="cMidp">C. Midpoint</option>
-                <option value="cBres">C. Bresenham</option>
+                
             </select>
             <label for="x1">x1:</label>
-            <input id="x1" name="x1" value="0">
+            <input id="x1" name="x1" value="9">
             <label for="y1">y1:</label>
-            <input id="y1" name="y1" value="0">
+            <input id="y1" name="y1" value="9">
             <label for="x2">x2:</label>
-            <input id="x2" name="x2" value="0">
+            <input id="x2" name="x2" value="19">
             <label for="y2">y2:</label>
-            <input id="y2" name="y2" value="0">
+            <input id="y2" name="y2" value="19">
             <label for="radio">radio:</label>
-            <input id="radio" name="radio" value="0">
+            <input id="radio" name="radio" value="5">
         </form>
         <script src="./js/processing.js"></script>
         <script type="module" src="./algorithms.js" ></script>
