@@ -3,7 +3,7 @@
 Install dependencies:
 
 ```
-$ npm i
+$ npm install
 ```
 
 run with 
